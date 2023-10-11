@@ -70,6 +70,6 @@ console.log(queue2.dequeue());
 console.log(queue.size());
 console.log(queue2.firstItem());
 console.log(queue.firstItem());
-queue.clear()
-queue2.clear()
-console.log(queue.dequeue())
+queue.clear();
+queue2.clear();
+console.log(queue.dequeue());
