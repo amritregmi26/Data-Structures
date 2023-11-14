@@ -36,6 +36,7 @@ class LinkedList
         if(!this.head)
         {
             this.head = newNode;
+            return;
         }
         let current = this.head;
         while(current.next)
@@ -54,7 +55,7 @@ class LinkedList
 
     insertAtIndex(index, data)
     {
-        if(index < 0 || index >= this.size())
+        if(index < 0 || index > this.size())
         {
             console.error("Invalid index");
             return;
@@ -97,5 +98,35 @@ class LinkedList
             current = current.next
         }
         current.next = null;
+    }
+
+    removeAtIndex(index)
+    {
+        if(this.isEmpty()) 
+        {
+            console.error("Linked list is empty");
+            return;
+        }
+
+        if(index < 0 || index >= this.size())
+        {
+            console.error("Invalid Index");
+            return;
+        }
+
+        if(index === 0) 
+        {
+            this.head = this.head.next;
+            return;
+        }
+
+        let current = this.head;
+        for(let i = 0; i < index - 1; i++)
+        {
+            current = current.next
+        }
+
+        if(current.next.next) current.next = current.next.next;
+        else current.next = null;
     }
 }
