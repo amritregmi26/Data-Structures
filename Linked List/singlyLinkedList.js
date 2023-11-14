@@ -129,4 +129,18 @@ class LinkedList
         if(current.next.next) current.next = current.next.next;
         else current.next = null;
     }
+
+    display()
+    {
+        let current = this.head;
+        let output = ""
+        while(current)
+        {
+            if(current.next) output += `${current.data} -> `;
+            else output += `${current.data}`;
+
+            current = current.next;
+        }
+        console.log(output);
+    }
 }
