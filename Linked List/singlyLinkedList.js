@@ -27,7 +27,6 @@ class LinkedList
             count++;
             current = current.next;
         }
-
         return count;
     }
 
@@ -43,7 +42,6 @@ class LinkedList
         {
             current = current.next;
         }
-
         current.next = newNode;
     }
 
@@ -81,5 +79,23 @@ class LinkedList
 
     }  
     
-}
+    removeFirst()
+    {
+        if(this.size() === 0) return "Linked List is Empty";
+        this.head = this.head.next;
+    }
 
+    removeLast()
+    {
+        if(!this.head) return "Linked List is Empty";
+
+        if(this.size() === 1) return "List has only one element";
+
+        let current = this.head
+        while(current.next.next)
+        {
+            current = current.next
+        }
+        current.next = null;
+    }
+}
