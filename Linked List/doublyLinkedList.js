@@ -13,6 +13,7 @@ class DoublyLinkedList
     constructor()
     {
         this.head = null;
+        this.tail = null;
     }
 
     isEmpty()
@@ -38,6 +39,7 @@ class DoublyLinkedList
         if(!this.head)
         {
             this.head = newNode;
+            this.tail = newNode;
             return;
         }
         newNode.next = this.head;
@@ -51,6 +53,7 @@ class DoublyLinkedList
         if(!this.head)
         {
             this.head = newNode;
+            this.tail = newNode;
             return
         }
 
@@ -62,5 +65,6 @@ class DoublyLinkedList
 
         current.next = newNode;
         newNode.prev = current;
+        this.tail = newNode;
     }
 }
