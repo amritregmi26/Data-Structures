@@ -83,7 +83,9 @@ class LinkedList
     removeFirst()
     {
         if(this.size() === 0) return "Linked List is Empty";
+        let returnVal = this.head.data;
         this.head = this.head.next;
+        return returnVal;
     }
 
     removeLast()
@@ -144,12 +146,3 @@ class LinkedList
         console.log(output);
     }
 }
-
-const dl = new LinkedList();
-
-console.log(dl.size());
-dl.insertFirst(1);
-dl.insertLast(2);
-dl.insertLast(4);
-dl.insertAtIndex(0, 3)
-dl.display();

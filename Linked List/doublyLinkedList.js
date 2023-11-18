@@ -110,6 +110,15 @@ class DoublyLinkedList
         newNode.prev = current;
     }
 
+    removeFirst()
+    {
+        if(!this.head) return "List is Empty";
+        let returnVal = this.head.data;
+        this.head = this.head.next;
+        this.head.prev = null;
+        return returnVal;
+    }
+
     display()
     {
         let current = this.head;
