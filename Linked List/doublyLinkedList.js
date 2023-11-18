@@ -70,7 +70,7 @@ class DoublyLinkedList
 
     insertAtIndex(index, data)
     {
-        if(index < 0 || index >= this.size())
+        if(index < 0 || index > this.size())
         {
             console.error("Invalid Index");
             return;
@@ -79,12 +79,25 @@ class DoublyLinkedList
         const newNode = new Node(data);
         if(index === 0)
         {
+            if(!this.head)
+            {
+                this.head = newNode;
+                this.tail = newNode;
+                return;
+            }
             newNode.next = this.head;
             this.head.prev = newNode;
             this.head = newNode;
             return;
         }
-
+        else if(index === this.size())
+        {
+            let current = this.tail;
+            current.next = newNode;
+            newNode.prev = current;
+            return;
+        }
+        
         let current = this.head;
         for(let i = 0; i < index - 1; i++)
         {
