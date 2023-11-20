@@ -95,6 +95,7 @@ class DoublyLinkedList
             let current = this.tail;
             current.next = newNode;
             newNode.prev = current;
+            this.tail = newNode;
             return;
         }
         
@@ -117,6 +118,21 @@ class DoublyLinkedList
         this.head = this.head.next;
         this.head.prev = null;
         return returnVal;
+    }
+
+    removeLast()
+    {
+        if(!this.head) return "List is Empty";
+        let returnVal = this.tail.data;
+        this.tail = this.tail.prev;
+        this.tail.next = null;
+        this.tail = this.tail.prev;
+        return returnVal
+    }
+
+    removeAtIndex(index)
+    {
+
     }
 
     display()
