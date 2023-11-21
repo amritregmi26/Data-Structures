@@ -126,13 +126,62 @@ class DoublyLinkedList
         let returnVal = this.tail.data;
         this.tail = this.tail.prev;
         this.tail.next = null;
-        this.tail = this.tail.prev;
         return returnVal
     }
 
-    removeAtIndex(index)
+    removeFromIndex(index)
     {
+        if(this.isEmpty())
+        {
+            console.error("List is Empty");
+            return;
+        }
 
+        if(index < 0 || index >= this.size())
+        {
+            console.error("Invalid Index");
+            return;
+        }
+
+        if(index === 0)
+        {
+            let returnVal = this.head.data;
+            if(this.size() === 1) 
+            {
+                this.head = null;
+                this.tail = null;
+                return returnVal;
+            }
+            this.head = this.head.next;
+            this.head.prev = null;
+            return returnVal;
+        }
+
+        if(index === this.size() - 1)
+        {
+            let returnVal = this.tail.data;
+            this.tail = this.tail.prev;
+            this.tail.next = null;
+            return returnVal;
+        }
+
+        let current = this.head;
+        for(let i = 0; i < index - 1; i++)
+        {
+            current = current.next;
+        }
+
+        if(current.next)
+        {
+            current.next = current.next.next;
+            current.next.prev = current;
+        }
+
+        else
+        {
+            current.next = null;
+        }
+        
     }
 
     display()
